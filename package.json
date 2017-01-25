@@ -1,0 +1,25 @@
+{
+    "name": "doodle",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server",
+        "bulid": "webpack"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "^0.26.1",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "file-loader": "^0.9.0",
+        "jquery": "^3.1.1",
+        "postcss": "^5.2.9",
+        "postcss-loader": "^1.2.1",
+        "precss": "^1.4.0",
+        "style-loader": "^0.13.1",
+        "url-loader": "^0.5.7",
+        "webpack": "^1.14.0",
+        "webpack-dev-server": "^1.16.2"
+    }
+}

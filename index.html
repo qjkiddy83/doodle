@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <!-- 嵌入到APP中的页面的分享标签 -->
+    <!-- 标题 -->
+    <title>涂鸦板</title>
+    <!-- 导语 -->
+    <meta name="description" content="" />
+    <!-- 微信分享图 -->
+    <meta name="share-pic-weixin" content="http://m.vogue.com.cn/mfeature/voguefilm/images/share.jpg" />
+    <!-- 分享URL -->
+    <meta name="share-url" content="http://m.vogue.com.cn/mfeature/voguefilm/" />
+    <!-- 嵌入到APP中的页面的分享标签 -->
+    <meta name="Keywords" content="VOGUE时尚网,VOGUE杂志" />
+    <meta name="Description" content="" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <div class="cont">
+        <canvas id="canavs" width="500" height="500"></canvas>
+        <p id="savedImg"><img src="" ><span>长按图片保存或转发</span></p>
+    </div>
+    <div class="flex">
+        <section class="color">
+            <label>画笔颜色：</label>
+            <p>
+                <span data-value="#000000" class="checked"></span>
+                <span data-value="#ff0000"></span>
+                <span data-value="#00ff00"></span>
+                <span data-value="#0000ff"></span>
+            </p>
+        </section>
+        <section>
+            <label>画笔宽度：</label>
+            <input type="range" id="lineWidth" min="1" max="10" value="1" />
+        </section>
+    </div>
+    <div class="btns">
+        <a href="javascript:;" id="savetoimg">生成图片</a>
+        <a href="javascript:;" id="redraw">重新绘制</a>
+    </div>
+    <script src="http://js.selfimg.com.cn/gallery/zepto/1.1.4/zepto.min.js"></script>
+    <script src="http://js.selfimg.com.cn/??lib/jweixin-1.0.0.js,brickjs/mshare/0.1.0/mshare.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <div style="display: none;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261171424'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261171424' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+
+</html>
