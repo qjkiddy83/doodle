@@ -13,7 +13,6 @@
              fs.mkdirSync(tmpPath)
          }
      })
-     console.log(_reg);
 
      files.forEach(function(item) {
          if (_ext && _ext !== "**" && !_reg.test(item)) {
@@ -28,7 +27,7 @@
              console.log(err);
          });
          wr.on("close", function(ex) {
-             console.log("success");
+            
          });
          rd.pipe(wr);
      })
