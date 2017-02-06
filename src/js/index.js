@@ -1,4 +1,5 @@
 require('./foreach.js');
+require('./ercode.js');
 var bind = require('./bind');
 bind();
 new brickjs.MShare({

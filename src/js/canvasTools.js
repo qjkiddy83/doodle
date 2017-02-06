@@ -35,6 +35,12 @@ canvasTools.prototype = {
         var ctx = this.el.getContext("2d");
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, ww, ww);
+    },
+    drawImg : function(img){
+        var ctx = this.el.getContext("2d");
+        var l = (ww-65);
+        console.log(l)
+        ctx.drawImage(img,l,l,60,60);
     }
 }
 

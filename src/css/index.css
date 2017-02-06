@@ -12,13 +12,14 @@ canvas {
 .cont {
     position: relative;
     border: 1px solid #f0f0f0;
+    background: url(../images/a2.jpg) no-repeat;
 }
 
 .cont p {
     display: block;
     position: absolute;
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
     top: 0;
     left: 50%;
     transform:translate3d(-50%,0,0);

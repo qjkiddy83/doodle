@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+var copyfiles = require('./copyfiles.js');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
@@ -56,6 +57,9 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('css/[name].css'),
-        uglifyPlugin,
+        // uglifyPlugin,
     ]
 }
+
+copyfiles("src/static/","dist/images/")
+copyfiles("\.(html|md)$","dist/")
