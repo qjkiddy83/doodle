@@ -12,7 +12,7 @@ var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
         drop_debugger: true,
         sequences: true,
         unused: true,
-        drop_console: false//去掉输出信息
+        drop_console: false //去掉输出信息
     },
     //配置中的变量不压缩
     mangle: {
@@ -24,10 +24,10 @@ var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
 function getOEntry() {
     var routerPath = './src/router/',
         oEntry = {},
-        files = fs.readdirSync(routerPath);//遍历router文件夹的文件
+        files = fs.readdirSync(routerPath); //遍历router文件夹的文件
     files.forEach(function(item) {
         var tmp = item.split('.');
-        if(!tmp[1] == 'js'){//过滤非js文件
+        if (!tmp[1] == 'js') { //过滤非js文件
             return;
         }
         oEntry[tmp[0]] = [
@@ -40,7 +40,7 @@ function getOEntry() {
 module.exports = {
     entry: getOEntry(),
     output: {
-        path: path.join(__dirname,'dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'js/[name].js'
     },
     module: {
@@ -57,9 +57,20 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('css/[name].css'),
-        uglifyPlugin
-    ]
+        uglifyPlugin,
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        host: '192.168.15.167',
+        port: 8080,
+        inline: true, //可以监控js变化
+        hot: true, //热启动
+    },
+    watch: true,
+    watchOptions: {
+        poll: true
+    }
 }
 
-copyfiles("src/static/","dist/images/")
-copyfiles("\.(html|md)$","dist/")
+copyfiles("src/static/", "dist/static/")
+copyfiles("\.(html|md)$", "dist/")

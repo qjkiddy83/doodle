@@ -1,4 +1,4 @@
 var ecodeImg = new Image;
-ecodeImg.src = 'images/eq.png';
+ecodeImg.src = require('../images/eq.png');
 
 module.exports = ecodeImg;

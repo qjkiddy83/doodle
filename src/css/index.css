@@ -12,7 +12,6 @@ canvas {
 .cont {
     position: relative;
     border: 1px solid #f0f0f0;
-    background: url(../images/a2.jpg) no-repeat;
 }
 
 .cont p {
