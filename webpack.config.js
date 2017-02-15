@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+var os = require('os');
 var copyfiles = require('./copyfiles.js');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -61,7 +62,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        host: '192.168.15.167',
+        host : 'localhost',
+        // host: os.networkInterfaces().eth1?os.networkInterfaces().eth1[0].address:os.networkInterfaces()['本地连接'][1].address,
         port: 8080,
         inline: true, //可以监控js变化
         hot: true, //热启动
