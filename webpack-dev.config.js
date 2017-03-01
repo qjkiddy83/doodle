@@ -6,20 +6,6 @@ var copyfiles = require('./copyfiles.js');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
-var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: true,
-        dead_code: true,
-        drop_debugger: true,
-        sequences: true,
-        unused: true,
-        drop_console: false //去掉输出信息
-    },
-    //配置中的变量不压缩
-    mangle: {
-        except: ['$super', '$', 'exports', '_', 'Promise', 'require']
-    }
-});
 
 //生成入口对象
 function getOEntry() {
@@ -43,37 +29,35 @@ module.exports = {
     },
     module: {
         loaders: [{
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
-            },
-            {
-                test: /\.css$/,
-                loader: 'postcss-loader'
-            }, {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader',
-                query: {
-                    limit: 8192,
-                    name: 'images/[hash:8].[name].[ext]'
-                }　　　
-            }
-        ]
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+        }, {
+            test: /\.css$/,
+            loader: 'postcss-loader'
+        }, {
+            test: /\.(png|jpg|gif)$/,
+            loader: 'url-loader',
+            query: {
+                limit: 8192,
+                name: 'images/[hash:8].[name].[ext]'
+            }　　　
+        }]
     },
     plugins: [
         new ExtractTextPlugin('[name].css'),
-        uglifyPlugin
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
         // host: 'localhost',
-        host: os.networkInterfaces().eth1?os.networkInterfaces().eth1[0].address:os.networkInterfaces()['本地连接'][1].address,
+        host: os.networkInterfaces().eth1 ? os.networkInterfaces().eth1[0].address : os.networkInterfaces()['本地连接'][1].address,
         port: 8080,
         inline: true, //可以监控js变化
         hot: true, //热启动
     },
-    // watch: true,
-    // watchOptions: {
-    //     poll: true
-    // }
+    watch: true,
+    watchOptions: {
+        poll: true
+    }
 }
 
 copyfiles("src/static/", "dist/static/")

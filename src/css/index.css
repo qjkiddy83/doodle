@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+body{
+    /*background: url(../images/a2.jpg) no-repeat;*/
+}
 
 canvas {
     width: 100%;

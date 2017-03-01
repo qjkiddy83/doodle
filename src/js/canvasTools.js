@@ -1,11 +1,15 @@
 var opts = require('./options.js');
 var ww = window.innerWidth;
+var bgimg = new Image;
+bgimg.src = require('../images/p3-bg8.jpg');
 
-function canvasTools(){
-	this.el = document.querySelector('#canavs');
-	this.el.width = ww;
-	this.el.height = ww;
-	this.fillBg();
+function canvasTools() {
+    this.el = document.querySelector('#canavs');
+    this.el.width = ww;
+    this.el.height = ww;
+    bgimg.onload = function() {
+        this.fillBg(bgimg);
+    }.bind(this)
 }
 
 canvasTools.prototype = {
@@ -13,7 +17,7 @@ canvasTools.prototype = {
         var ctx = this.el.getContext("2d");
         ctx.clearRect(0, 0, this.el.width, this.el.height);
         opts.lineData = [];
-        this.fillBg();
+        this.fillBg(bgimg);
     },
     draw: function() {
         var ctx = this.el.getContext("2d");
@@ -30,17 +34,17 @@ canvasTools.prototype = {
             ctx.stroke();
         })
     },
-    fillBg: function() {
-        //添加白色背景
+    fillBg: function(bgimg) {
+        // //添加白色背景
         var ctx = this.el.getContext("2d");
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, ww, ww);
+        ctx.drawImage(bgimg, 0, 0, ww, ww);
     },
-    drawImg : function(img){
+    drawImg: function(img) {
         var ctx = this.el.getContext("2d");
-        var l = (ww-65);
-        console.log(l)
-        ctx.drawImage(img,l,l,60,60);
+        var l = (ww - 65);
+        ctx.drawImage(img, l, l, 60, 60);
     }
 }
 
