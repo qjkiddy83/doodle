@@ -1,6 +1,6 @@
-var opts = require('./options.js');
-var ercode = require('./ercode.js');
-var tools = require('./canvasTools.js');
+let opts = require('./options.js');
+let ercode = require('./ercode.js');
+let tools = require('./canvasTools.js');
 
 module.exports = function() {
 	tools.drawImg(ercode);

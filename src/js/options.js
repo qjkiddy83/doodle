@@ -1,6 +1,6 @@
-var colors = require('./colors.js');
+let colors = require('./colors.js');
 
-var opts = {
+let opts = {
     canvas: document.querySelector('#canavs'),
     getColor: colors.getColor,
     lineWidth: document.querySelector('#lineWidth'),

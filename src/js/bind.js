@@ -1,18 +1,16 @@
-var opts = require('./options'),
+let opts = require('./options'),
     save = require('./save.js'),
     tools = require('./canvasTools.js');
-var start = {},
-    end = {};
 
 function bind() {
     opts.canvas.addEventListener('touchstart', function(e) {
         e.preventDefault();
-        var touch = e.touches[0];
+        let touch = e.touches[0];
         opts.lineData.push([{ x: touch.clientX, y: touch.clientY }]);
     }, false)
     opts.canvas.addEventListener('touchmove', function(e) {
         e.preventDefault();
-        var touch = e.changedTouches[0];
+        let touch = e.changedTouches[0];
         opts.lineData[opts.lineData.length - 1].push({ x: touch.clientX, y: touch.clientY });
         tools.draw();
     }, false)

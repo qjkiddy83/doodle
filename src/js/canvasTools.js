@@ -1,6 +1,6 @@
-var opts = require('./options.js');
-var ww = window.innerWidth;
-var bgimg = new Image;
+let opts = require('./options.js');
+let ww = window.innerWidth;
+let bgimg = new Image;
 bgimg.src = require('../images/p3-bg8.jpg');
 
 function canvasTools() {
@@ -14,14 +14,14 @@ function canvasTools() {
 
 canvasTools.prototype = {
     clear: function() {
-        var ctx = this.el.getContext("2d");
+        let ctx = this.el.getContext("2d");
         ctx.clearRect(0, 0, this.el.width, this.el.height);
         opts.lineData = [];
         this.fillBg(bgimg);
     },
     draw: function() {
-        var ctx = this.el.getContext("2d");
-        var tmpData = opts.lineData[opts.lineData.length - 1];
+        let ctx = this.el.getContext("2d");
+        let tmpData = opts.lineData[opts.lineData.length - 1];
 
         ctx.beginPath();
         ctx.moveTo(opts.lineData[0].x, opts.lineData[0].y);
@@ -35,15 +35,15 @@ canvasTools.prototype = {
         })
     },
     fillBg: function(bgimg) {
-        // //添加白色背景
-        var ctx = this.el.getContext("2d");
+        //添加白色背景
+        let ctx = this.el.getContext("2d");
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, ww, ww);
         ctx.drawImage(bgimg, 0, 0, ww, ww);
     },
     drawImg: function(img) {
-        var ctx = this.el.getContext("2d");
-        var l = (ww - 65);
+        let ctx = this.el.getContext("2d");
+        let l = (ww - 65);
         ctx.drawImage(img, l, l, 60, 60);
     }
 }
